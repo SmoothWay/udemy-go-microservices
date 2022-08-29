@@ -8,6 +8,7 @@
                 <hr>
 
                 <a id="brokerBtn" class="btn btn-outline-secondary" href="javascript:void(0);">Test Broker </a>
+                <a id="authBrokerBtn" class="btn btn-outline-secondary" href="javascript:void(0);">Test Auth </a>
                 <div id="output" class="mt-5" style="outline: 1px solid silver; padding: 2em;">
                     <span class="text-muted">Output shows here...</span>
                 </div>
@@ -33,10 +34,42 @@
 {{define "js"}}
     <script>
         let brokerBtn = document.getElementById("brokerBtn");
+        let authBrokerBtn = document.getElementById("authBrokerBtn");
         let output = document.getElementById("output");
         let sent = document.getElementById("payload");
         let received = document.getElementById("received");
+        authBrokerBtn.addEventListener("click", function(){
+            
+            const payload = {
+                action: "auth",
+                auth: {
+                    email: "admin@example.com",
+                    password: "verysecret",                }    
+            }
+            const headers = new Headers();
+            const body = {
+                method: 'POST',
+                body: JSON.stringify(payload),
+                headers: headers,
+            }
 
+
+            headers.append("Content-Type", "application/json")
+            fetch("http:\/\/localhost:8080/handle", body)
+            .then((response) => response.json())    
+            .then((data) => {
+                sent.innerHTML =JSON.stringify(payload, undefined, 4);
+                received.innerHTML = JSON.stringify(data, undefined, 4);
+                if (data.error){
+                    output.innerHTML += `<br><strong>Error:</strong> ${data.message}`;
+                } else{
+                    output.innerHTML += `<br><strong>Response from broker service</strong>: ${data.message}`;
+                }
+            })
+            .catch((error) => {
+                output.innerHTML += "<br><br>Error: " + error;
+            })
+        })
         brokerBtn.addEventListener("click", function(){
             
             const body = {
