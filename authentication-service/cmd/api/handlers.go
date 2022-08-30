@@ -50,13 +50,12 @@ func (app *Config) Authenticate(w http.ResponseWriter, r *http.Request) {
 }
 
 func (app *Config) logRequest(name, data string) error {
-	entry := struct {
+	var entry struct {
 		Name string `json:"name"`
 		Data string `json:"data"`
-	}{
-		name,
-		data,
 	}
+	entry.Name = name
+	entry.Data = data
 
 	jsonData, _ := json.MarshalIndent(entry, "", "\t")
 	logServiceURL := "http://logger-service/log"
