@@ -1,3 +1,7 @@
+## Still developing
+
+Developing stage
+
 ## Description
 In this project, I learned how to develop a number of small, self-contained, loosely coupled microservices  
 that will communicate with one another and a simple front-end application with a REST API, with RPC, over  
@@ -21,4 +25,42 @@ Also I learned how to deploy distributed application to a Docker Swarm and Kuber
 Link to the [course](https://www.udemy.com/course/working-with-microservices-in-go/)
 
 
-## Still developing
+## Running the project
+
+From the project directory, execute this command (this assumes that you have 
+[GNU make](https://www.gnu.org/software/make/) and a recent version
+of [Docker](https://www.docker.com/products/docker-desktop) installed on your machine):
+
+~~~
+make up_build 
+~~~
+
+If the code has not changed, subsequent runs can just be `make up`.
+
+Then start the front end:
+
+~~~
+make start
+~~~
+
+Hit the front end with your web browser at `http://localhost:4000`.
+
+To stop everything:
+
+~~~
+make stop
+make down
+~~~
+
+While working on code, you can rebuild just the service you are working on by
+executing
+
+`make auth`
+
+Where `auth` is one of the services:
+
+- auth
+- broker
+- logger
+- listener
+- mail
