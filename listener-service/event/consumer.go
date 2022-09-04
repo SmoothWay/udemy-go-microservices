@@ -105,10 +105,6 @@ func handlePayload(payload Payload) {
 
 }
 
-<<<<<<< HEAD
-func logEvent(enty Payload) error {
-
-=======
 func logEvent(entry Payload) error {
 	jsonData, _ := json.MarshalIndent(entry, "", "\t")
 
@@ -131,6 +127,5 @@ func logEvent(entry Payload) error {
 	if response.StatusCode != http.StatusAccepted {
 		return err
 	}
->>>>>>> main
 	return nil
 }
