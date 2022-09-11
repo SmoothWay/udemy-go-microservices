@@ -1,10 +1,17 @@
 version: '3'
 
 services:
+
+  front-end:
+    image: effectone/front-end:1.0.1
+    deploy:
+      mode: replicated
+      replicas: 1
+
+
+
   broker-service:
-    image: effectone/broker-service:1.0.0
-    ports: 
-      - "8080:80"
+    image: effectone/broker-service:1.0.1
     deploy:
       mode: replicated
       replicas: 1
@@ -24,7 +31,7 @@ services:
       DSN: "host=postgres port=5432 user=postgres password=password dbname=users sslmode=disable timezone=UTC connect_timeout=5"
 
   logger-service:
-    image: effectone/logger-service:1.0.0
+    image: effectone/logger-service:1.0.1
     deploy:
       mode: replicated
       replicas: 1
