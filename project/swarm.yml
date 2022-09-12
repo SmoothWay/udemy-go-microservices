@@ -2,15 +2,6 @@ version: '3'
 
 services:
 
-<<<<<<< HEAD
-  front-end:
-    image: effectone/front-end:1.0.1
-    deploy:
-      mode: replicated
-      replicas: 1
-
-
-=======
   caddy:
     image: effectone/micro-caddy:1.0.0
     deploy:
@@ -30,7 +21,6 @@ services:
       replicas: 1
     environment:
       BROKER_URL: "http://backend"
->>>>>>> dev
 
   broker-service:
     image: effectone/broker-service:1.0.1
@@ -103,10 +93,6 @@ services:
     image: 'postgres:14.0'
     ports: 
       - "5433:5432"
-<<<<<<< HEAD
-    restart: always
-=======
->>>>>>> dev
     deploy: 
       mode: replicated
       replicas: 1
@@ -116,12 +102,9 @@ services:
       POSTGRES_DB: users
     volumes:
       - ./db-data/postgres/:/var/lib/postgresql/data/
-<<<<<<< HEAD
-=======
 
 
 volumes:
   caddy_data:
     external: true
   caddy_config:
->>>>>>> dev
