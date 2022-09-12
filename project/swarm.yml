@@ -8,17 +8,19 @@ services:
       mode: replicated
       replicas: 1
     ports:
-      - "80:80"
+      - "8080:80"
       - "443:443"
     volumes:
       - caddy_data:/data
-      - caddy_config;/config
+      - caddy_config:/config
 
   front-end:
-    image: effectone/front-end:1.0.1
+    image: effectone/front-end:1.0.2
     deploy:
       mode: replicated
       replicas: 1
+    environment:
+      BROKER_URL: "http://backend"
 
   broker-service:
     image: effectone/broker-service:1.0.1
