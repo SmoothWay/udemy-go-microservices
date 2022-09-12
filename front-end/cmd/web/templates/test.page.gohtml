@@ -130,7 +130,7 @@
                 body: JSON.stringify(payload),
                 headers: headers,
             }
-            fetch({{print .BrokerURL "/handle"}} body)
+            fetch({{print .BrokerURL "/handle"}}, body)
             .then((response) => response.json())    
             .then((data) => {
                 sent.innerHTML =JSON.stringify(payload, undefined, 4);

@@ -15,7 +15,7 @@ services:
       - caddy_config:/config
 
   front-end:
-    image: effectone/front-end:1.0.2
+    image: effectone/front-end:1.0.3
     deploy:
       mode: replicated
       replicas: 1
