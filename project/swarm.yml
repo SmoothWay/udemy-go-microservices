@@ -15,7 +15,7 @@ services:
       - caddy_config:/config
 
   front-end:
-    image: effectone/front-end:1.0.3
+    image: effectone/front-end:1.0.5
     deploy:
       mode: replicated
       replicas: 1
@@ -23,7 +23,7 @@ services:
       BROKER_URL: "http://backend"
 
   broker-service:
-    image: effectone/broker-service:1.0.1
+    image: effectone/broker-service:1.0.4
     deploy:
       mode: replicated
       replicas: 1
@@ -90,7 +90,7 @@ services:
       - ./db-data/mongo/:/data/db
 
   postgres:
-    image: 'postgres:14.0'
+    image: 'postgres:14.2'
     ports: 
       - "5433:5432"
     deploy: 
