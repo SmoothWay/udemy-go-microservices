@@ -1,6 +1,10 @@
 *
 !/**/
 !*.*
+!Caddyfile
 .vscode/
 .DS_Store
 db-data/
+caddy.production.dockerfile
+Caddyfile.production
+swarm.production.yml
