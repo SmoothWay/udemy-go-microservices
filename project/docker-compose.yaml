@@ -28,7 +28,7 @@ services:
       dockerfile: authentication-service.dockerfile
     restart: always
     ports:
-      - "8081:80"
+      - "8083:80"
     deploy:
       mode: replicated
       replicas: 1 
@@ -63,7 +63,7 @@ services:
       FROM_ADDRESS: BatemanPatrick@example.com
 
   postgres:
-    image: 'postgres:14.0'
+    image: 'postgres:14.2'
     ports: 
       - "5433:5432"
     restart: always
