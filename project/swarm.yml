@@ -8,25 +8,25 @@ services:
       mode: replicated
       replicas: 1
     ports:
-      - "8080:80"
+      - "8083:8083"
       - "443:443"
     volumes:
       - caddy_data:/data
       - caddy_config:/config
 
   front-end:
-    image: effectone/front-end:1.0.2
+    image: effectone/front-end:1.0.0
     deploy:
       mode: replicated
       replicas: 1
-    environment:
-      BROKER_URL: "http://backend"
 
   broker-service:
-    image: effectone/broker-service:1.0.1
+    image: effectone/broker-service:1.0.0
     deploy:
       mode: replicated
       replicas: 1
+    ports:
+      - "8080:80"
   
   listener-service:
     image: effectone/listener-service:1.0.0
@@ -43,7 +43,7 @@ services:
       DSN: "host=postgres port=5432 user=postgres password=password dbname=users sslmode=disable timezone=UTC connect_timeout=5"
 
   logger-service:
-    image: effectone/logger-service:1.0.1
+    image: effectone/logger-service:1.0.0
     deploy:
       mode: replicated
       replicas: 1
@@ -90,11 +90,11 @@ services:
       - ./db-data/mongo/:/data/db
 
   postgres:
-    image: 'postgres:14.0'
+    image: 'postgres:14.2'
     ports: 
       - "5433:5432"
     deploy: 
-      mode: replicated
+      mode: replicated 
       replicas: 1
     environment:
       POSTGRES_USER: postgres

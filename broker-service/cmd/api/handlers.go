@@ -7,6 +7,7 @@ import (
 	"context"
 	"encoding/json"
 	"errors"
+	"log"
 	"net/http"
 	"net/rpc"
 	"time"
@@ -40,6 +41,7 @@ type LogPayLoad struct {
 }
 
 func (app *Config) Broker(w http.ResponseWriter, r *http.Request) {
+	log.Println("IN THE BROKER")
 	payload := jsonResponse{
 		Error:   false,
 		Message: "Hit the broker",
