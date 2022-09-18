@@ -1,3 +1,5 @@
+Deployed on http://swarm.smoothway.online
+
 ## Still developing
 
 Developing stage
