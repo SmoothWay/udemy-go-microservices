@@ -57,49 +57,49 @@ down:
 ## build_front_linux: builds the front end binary as a linux executable
 build_front_linux:
 	@echo "Building front end linux binary..."
-	cd ../front-end && env GOOS=linux CGO_ENABLED=0 go build -o ${FRONT_BINARY} ./cmd/web
+	cd front-end && env GOOS=linux CGO_ENABLED=0 go build -o ${FRONT_BINARY} ./cmd/web
 	@echo "Done!"
 
 ## build_broker: builds the broker binary as a linux executable
 build_broker:
 	@echo "Building broker binary..."
-	cd ../broker-service && env GOOS=linux CGO_ENABLED=0 go build -o ${BROKER_BINARY} ./cmd/api
+	cd broker-service && env GOOS=linux CGO_ENABLED=0 go build -o ${BROKER_BINARY} ./cmd/api
 	@echo "Done!"
 
 ## build_mailer: builds the mailer binary as a linux executable
 build_mailer:
 	@echo "Building mailer binary..."
-	cd ../mail-service && env GOOS=linux CGO_ENABLED=0 go build -o ${MAIL_BINARY} ./cmd/api
+	cd mail-service && env GOOS=linux CGO_ENABLED=0 go build -o ${MAIL_BINARY} ./cmd/api
 	@echo "Done!"
 
 ## build_logger: builds the logger binary as a linux executable
 build_logger:
 	@echo "Building logger binary..."
-	cd ../logger-service && env GOOS=linux CGO_ENABLED=0 go build -o ${LOGGER_BINARY} ./cmd/api
+	cd logger-service && env GOOS=linux CGO_ENABLED=0 go build -o ${LOGGER_BINARY} ./cmd/api
 	@echo "Done!"
 
 ## build_listener: builds the listener binary as a linux executable
 build_listener:
 	@echo "Building listener binary..."
-	cd ../listener-service && env GOOS=linux CGO_ENABLED=0 go build -o ${LISTENER_BINARY} .
+	cd listener-service && env GOOS=linux CGO_ENABLED=0 go build -o ${LISTENER_BINARY} .
 	@echo "Done!"
 
 ## build_auth: builds the auth binary as a linux executable
 build_auth:
 	@echo "Building auth binary..."
-	cd ../authentication-service && env GOOS=linux CGO_ENABLED=0 go build -o ${AUTH_BINARY} ./cmd/api
+	cd authentication-service && env GOOS=linux CGO_ENABLED=0 go build -o ${AUTH_BINARY} ./cmd/api
 	@echo "Done!"
 
 ## build_front: builds the front end binary
 build_front:
 	@echo "Building front end binary..."
-	cd ../front-end && env GOOS=linux && CGO_ENABLED=0 go build -o ${FRONT_END_BINARY} ./cmd/web
+	cd front-end && env GOOS=linux && CGO_ENABLED=0 go build -o ${FRONT_END_BINARY} ./cmd/web
 	@echo "Done!"
 
 ## start: starts the front end
 start: build_front
 	@echo "Starting front end"
-	cd ../front-end && ./${FRONT_END_BINARY} &
+	cd front-end && ./${FRONT_END_BINARY} &
 
 ## stop: stop the front end
 stop:
