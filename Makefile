@@ -116,6 +116,12 @@ swarm_down:
 	@echo "Stopping swarm..."
 	docker stack rm myapp
 
+## test: runs all tests
+test:
+	@echo "Testing..."
+	go test -v ./...
+
+## clean: runs go clean and deletes binaries
 clean:
 	@echo "Cleaning..."
 	@cd broker-service && rm -f ${BROKER_BINARY}
@@ -131,3 +137,8 @@ clean:
 	@cd front-end && go clean
 	@cd front-end && rm -f ${FRONT_END_BINARY}
 	@echo "Cleaned!"
+
+## help: displays help
+help: Makefile
+	@echo " Choose a command:"
+	@sed -n 's/^##//p' $< | column -t -s ':' |  sed -e 's/^/ /'

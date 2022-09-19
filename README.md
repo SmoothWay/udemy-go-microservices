@@ -1,9 +1,5 @@
 Deployed on http://swarm.smoothway.online
 
-## Still developing
-
-Developing stage
-
 ## Description
 In this project, I learned how to develop a number of small, self-contained, loosely coupled microservices  
 that will communicate with one another and a simple front-end application with a REST API, with RPC, over  
@@ -66,3 +62,27 @@ Where `auth` is one of the services:
 - logger
 - listener
 - mail
+
+All make commands:
+
+~~~
+Choose a command:
+  up                  starts all containers in the background without forcing build
+  build_dockerfiles   builds all dockerfile images
+  push_dockerfiles    pushes tagged versions to docker hub
+  up_build            stops docker-compose (if running), builds all projects and starts docker compose
+  down                stop docker compose
+  build_front_linux   builds the front end binary as a linux executable
+  build_broker        builds the broker binary as a linux executable
+  build_mailer        builds the mailer binary as a linux executable
+  build_logger        builds the logger binary as a linux executable
+  build_listener      builds the listener binary as a linux executable
+  build_auth          builds the auth binary as a linux executable
+  build_front         builds the front end binary
+  start               starts the front end
+  stop                stop the front end
+  swarm_down          stops the swarm
+  test                runs all tests
+  clean               runs go clean and deletes binaries
+  help                displays help
+~~~
