@@ -1,4 +1,3 @@
-Deployed on http://swarm.smoothway.online
 
 ## Description
 In this project, I learned how to develop a number of small, self-contained, loosely coupled microservices  
